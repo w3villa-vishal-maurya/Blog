@@ -14,6 +14,10 @@
         <%= form.text_field :author, class: "form-control"%>
     </div>
     <div class="mb-3">
+        <%= form.label :image%>
+        <%= form.file_field :image, class: "form-control", placeholder: "User"%>
+    </div>
+    <div class="mb-3">
         <%= form.label :published_year%>
         <%= form.number_field :published_year, class: "form-control"%>
     </div>

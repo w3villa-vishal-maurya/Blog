@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
     end
 
     def index
-        @blog = Blog.all
+        @blog = Blog.all.with_attached_image
     end
 
    #POST method for new user add
@@ -46,6 +46,6 @@ class BlogsController < ApplicationController
     private
 
     def blog_params
-        params.require(:blog).permit(:title, :article, :published_year, :rating, :author)
+        params.require(:blog).permit(:title, :article, :published_year, :rating, :author, :image)
     end
 end

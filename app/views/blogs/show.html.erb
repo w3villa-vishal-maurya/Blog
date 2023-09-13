@@ -1,9 +1,10 @@
-<%= stylesheet_link_tag('/blogs/blog_show')%>
+<%= stylesheet_link_tag('blog_show')%>
 <div class="nav">
   <h1>
     Article-<%= @blog.id%>
   </h1>
   <div >
+    <%= link_to "Home", blog_index_path, class: "edit" %>
     <%= link_to "Edit", blog_edit_path, class: "edit" %>
     <%= link_to "  Delete", blog_delete_path(@blog), data: {
                     turbo_method: :delete,
@@ -11,10 +12,13 @@
                   } , class: "edit"%>
   </div>
 </div>
+
 <div class="row">
   <div class="col-4">
     <div class="row">
-      <img src="https://source.unsplash.com/400x400/?cartoon" alt="Girl in a jacket" width="200" height="250">
+       <% if @blog.image.attached? %>
+          <img src=<%=(url_for(@blog.image.variant(resize_to_fit: [200, 200])))%>>
+        <% end %>
     </div>
     <div class="text">
       <a class="row title" href="/blog/<%= @blog.id %>">
