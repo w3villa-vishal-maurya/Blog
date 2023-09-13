@@ -1,0 +1,36 @@
+<%= stylesheet_link_tag('/blogs/blog_show')%>
+<div class="nav">
+  <h1>
+    Article-<%= @blog.id%>
+  </h1>
+  <div >
+    <%= link_to "Edit", blog_edit_path, class: "edit" %>
+    <%= link_to "  Delete", blog_delete_path(@blog), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } , class: "edit"%>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4">
+    <div class="row">
+      <img src="https://source.unsplash.com/400x400/?cartoon" alt="Girl in a jacket" width="200" height="250">
+    </div>
+    <div class="text">
+      <a class="row title" href="/blog/<%= @blog.id %>">
+        <h3><%= @blog.title %></h3>
+      </a>
+      <div class="row">
+        <p class=""><%= @blog.article %></p>
+      </div>
+      <div class="row">
+        <p class="col-12">Author- <%= @blog.author %></p>
+      </div>
+      <div class="row">
+        <p class="col-6"> <%=  @blog.published_year %></p>
+        <p class="col-6 rating"><%= @blog.rating %></p>
+      </div>
+      
+    </div>
+  </div>
+</div>

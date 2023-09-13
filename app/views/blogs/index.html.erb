@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag('/blogs/blog_index')%>
+<div class="nav">
+  <h1>Blogs</h1>
+  <h4><%= link_to "Write Your Blog", blog_new_path%></h4>
+</div>
+
+<div class="row">
+  <% @blog.each do |blog|%>
+    <div class="col-4">
+      <div class="row">
+        <img src="https://source.unsplash.com/400x400/?cartoon" alt="Girl in a jacket" width="200" height="250">
+      </div>
+      <div class="text">
+        <a class="row title" href="/blog/<%= blog.id %>">
+          <h3><%= blog.title %></h3>
+        </a>
+        <div class="row">
+          <p class="article"><%= blog.article %></p>
+        </div>
+        <div class="row">
+          <p class="col-6"><%= blog.published_year %></p>
+          <p class="col-6 rating"><%= blog.rating %></p>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</div>
+
+
+

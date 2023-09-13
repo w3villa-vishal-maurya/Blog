@@ -1,0 +1,28 @@
+<h1>Update your post</h1>
+
+<%= form_with model: @blog, url: blog_update_path(@blog), method: :PUT do |form|%>
+    <div class="mb-3">
+        <%= form.label :title%>
+        <%= form.text_field :title, class: "form-control"%>
+    </div>
+    <div class="mb-3">
+        <%= form.label :article%>
+        <%= form.text_field :article, class: "form-control"%>
+    </div>
+    <div class="mb-3">
+        <%= form.label :author%>
+        <%= form.text_field :author, class: "form-control"%>
+    </div>
+    <div class="mb-3">
+        <%= form.label :published_year%>
+        <%= form.number_field :published_year, class: "form-control"%>
+    </div>
+    <div class="mb-3">
+        <%= form.label :rating%>
+        <%= form.number_field :rating, class: "form-control"%>
+    </div>
+
+    <div class="mb-3">
+        <%= form.submit "ADD", class: "btn btn-primary"%>
+    </div>
+<%end%>
